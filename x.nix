@@ -19,5 +19,12 @@
   };
   services.xserver.displayManager.sessionCommands = with pkgs; lib.mkAfter ''
     ${feh}/bin/feh --bg-scale ${config.users.extraUsers.tcsavage.home}/wallpaper/background.png
+    xscreensaver -no-splash &
+    parcellite &
   '';
+
+  environment.systemPackages = with pkgs; [
+    xscreensaver
+    parcellite
+  ];
 }
